@@ -9,7 +9,7 @@ class Cart
   end
 
   def clear
-    @item = []
+    items.clear
   end
 
   def add_item item
