@@ -3,6 +3,10 @@ Cart Management
 
 git clone https://github.com/takirohit/basket.git
 
+cd basket
+
+bundle install
+
 rake db:migrate
 
 rake db:reset
