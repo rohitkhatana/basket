@@ -1,0 +1,9 @@
+== README
+
+rake db:migrate
+rake db:reset
+rake db:seed
+rails s
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.

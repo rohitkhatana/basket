@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-1">
+    <h1 class="page-header">Items</h1>
+  </div>
+  <div class="col-md-4">
+    <form action="<%= generate_cart_index_path %>" method="POST">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <button type="submit" class="page-header btn btn-primary">Generate Bill</button>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-1">
+      <div class="row">
+        <div class="col-md-2">
+          <h4>Price</h4>
+        </div>
+        <div class="col-md-2">
+          <h4>Description</h4>
+        </div>
+        <div class="col-md-2">
+          <h4>Location</h4>
+        </div>
+        <div class="col-md-2">
+          <h4>Quantity</h4>
+        </div>
+      </div>
+  </div>
+  <div class="col-md-6 col-md-offset-1">
+    <% @products.each do |product| %>
+      <form action="<%= add_cart_index_path %>" method="POST">
+        <div class="row">
+          <div class="col-md-2">
+            <h5><%= product.price %></h5>
+          </div>
+          <div class="col-md-2">
+            <h5><%= product.description %></h5>
+          </div>
+          <div class="col-md-2">
+            <select name="state">
+              <option value="CA">California</option>
+              <option value="NL">New Jersey</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <input type="number" required="true" class="form-control" id="quantity" name="quantity" placeholder="quantity">
+            </div>
+          </div>
+          <%= hidden_field_tag :product_id, product.id%>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-success">Add</button>
+          </div>
+        </div>
+      </form>
+    <% end %>
+  </div>
+</div>
