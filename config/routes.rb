@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'product#index'
   resources :cart, only: [:new] do
     collection do
-      post 'generate'
+      post 'clear'
       post 'add'
     end
   end

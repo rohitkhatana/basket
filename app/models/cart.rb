@@ -8,6 +8,10 @@ class Cart
     @items
   end
 
+  def clear
+    @item = []
+  end
+
   def add_item item
     items.append(item)
   end
@@ -35,8 +39,10 @@ class Cart
 
   private
     def tax_rate item
-      tax = TaxRate.where(state: item[:location]).first
-      tax ? tax.rate : nil
+      tax_detail = TaxRate.where(state: item[:state]).first
+      if tax_detail and tax_detail.exempted_category_ids.exclude? item[:category_id]
+        tax_detail.rate
+      end
     end
 
     def round_to(num, incr=0.05)

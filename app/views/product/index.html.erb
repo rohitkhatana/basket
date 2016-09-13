@@ -3,9 +3,9 @@
     <h1 class="page-header">Items</h1>
   </div>
   <div class="col-md-4">
-    <form action="<%= generate_cart_index_path %>" method="POST">
+    <form action="<%= clear_cart_index_path %>" method="POST">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <button type="submit" class="page-header btn btn-primary">Generate Bill</button>
+      <button type="submit" class="page-header btn btn-danger">Clear Cart</button>
     </form>
   </div>
 </div>
@@ -39,7 +39,7 @@
           <div class="col-md-2">
             <select name="state">
               <option value="CA">California</option>
-              <option value="NL">New Jersey</option>
+              <option value="NJ">New Jersey</option>
             </select>
           </div>
           <div class="col-md-2">
@@ -56,4 +56,11 @@
       </form>
     <% end %>
   </div>
+  <% if @total %>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1">
+      <h1 class="page-header">Total=<%= @total %></h1>
+    </div>
+  </div>
+  <% end %>
 </div>

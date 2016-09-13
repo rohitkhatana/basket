@@ -1,13 +1,15 @@
 class CartController < ApplicationController
   include CartHandler
 
-  def generate
-    render json: cart.rounded_total
+  def clear
+    cart.clear
+    clear_session_cart
+    redirect_to root_path
   end
 
   def add
     cart.add_item(item)
-    session[:cart] = cart.to_json
+    update_session_cart
     redirect_to root_path
   end
 

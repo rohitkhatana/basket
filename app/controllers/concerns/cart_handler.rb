@@ -6,6 +6,7 @@ module CartHandler
   end
 
   def parse_cart
+    session
     if session[:cart]
       Cart.new(JSON.parse(session[:cart], {symbolize_names: true})[:items])
     else
@@ -22,8 +23,17 @@ module CartHandler
     item = {}
     item[:price] = product.price.to_f
     item[:product_id] = product.id
+    item[:category_id] = product.category_id
     item[:quantity] = item_params[:quantity].to_i
     item[:state] = item_params[:state]
     item
+  end
+
+  def clear_session_cart
+    session[:cart] = nil
+  end
+
+  def update_session_cart
+    session[:cart] = cart.to_json
   end
 end
