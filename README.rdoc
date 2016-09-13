@@ -1,9 +1,8 @@
 == README
-
+Cart Management 
+git clone "this repo"
 rake db:migrate
 rake db:reset
 rake db:seed
+rake test test/services/test_cart_service.rb
 rails s
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

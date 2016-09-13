@@ -7,9 +7,9 @@
 CA:
   id: 1
   state: CA
-  rate: 9.7
+  rate: 9.75
 
 NL:
   id: 2
-  state: NL
-  rate: 7
+  state: NJ
+  rate: 7.00
