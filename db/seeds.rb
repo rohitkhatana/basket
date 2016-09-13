@@ -17,6 +17,10 @@ TaxRate.create(rate: 9.75, exempted_categories: [food_category], state: "CA")
 TaxRate.create(rate: 7.00, exempted_categories: [cloth_category, food_category],
 state: "NJ")
 
-10.times do |i|
+4.times do |i|
   Product.create(category: food_category, description: "food#{i+1}", price: 12*(i+1))
+end
+
+4.times do |i|
+  Product.create(category: cloth_category, description: "cloth#{i+1}", price: 10*(i+1))
 end

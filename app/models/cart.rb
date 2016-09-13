@@ -34,7 +34,7 @@ class Cart
   end
 
   def rounded_total
-    round_to(total)
+    round_to(total).round(2)
   end
 
   private
